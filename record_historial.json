@@ -1,0 +1,22 @@
+[
+    {
+        "dificultad": "media",
+        "Número de intentos": 6,
+        "Partida ganada": true
+    },
+    {
+        "dificultad": "facil",
+        "Número de intentos": 3,
+        "Partida": "Perdida"
+    },
+    {
+        "dificultad": "facil",
+        "Número de intentos": 3,
+        "Partida": "Perdida"
+    },
+    {
+        "dificultad": "facil",
+        "Número de intentos": 1,
+        "Partida": "Ganada"
+    }
+]

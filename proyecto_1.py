@@ -7,15 +7,16 @@ clientes = {
 }
 
 
+## 1 y 2 corregidos quedan: 3,4,5,6 
 
     
-def modificar_clientes():
+def modificar_clientes(): ## 1
     nombre = input("¿Que cliente quieres modificar?: ").capitalize()
     while nombre in clientes:
         dato = input("¿Que quieres modificar, teléfono o email?: ").lower()
         nuevo_valor = input("Introduce el nuevo valor: ")
         clientes[nombre][dato] = nuevo_valor
-        respuesta = input("¿Quieres añadir otro cliente?: ").capitalize()
+        respuesta = input("¿Quieres modificar otro cliente?: ").capitalize()
         if respuesta != ["Si","Sí"]:
             break
     else:
@@ -23,22 +24,30 @@ def modificar_clientes():
 
     
 
-def eliminar_clientes():
-    nombre = input("¿Que cliente quieres eliminar?: ").capitalize()
-    while nombre in clientes:
-        del clientes[nombre]
-        respuesta = input("¿Quieres eliminar otro cliente?: ").capitalize()
-        if respuesta != ["Sí","Si"]:
-            print("=Clientes eliminados correctamente=")
+def eliminar_clientes(): ## 2
+    while True:
+        try:
+            nombre = input("¿Que cliente quieres eliminar?: ").capitalize()
+        except TypeError:
+            print(TypeError,"Inténtalo de nuevo")
+            continue
+        if nombre in clientes:
+            del clientes[nombre]
+        else:
+            print("Este cliente no existe. Inténtalo de nuevo")
+            continue
+        pregunta = input("¿Quieres eliminar otro cliente?: ").capitalize()
+        if pregunta != ["Sí","Si"]:
+            print(f"=Clientes eliminados correctamente=\n{nombre}")
             break
-    else:
-        print("=Este cliente no exixste=")
+        else:
+            continue
 
 
 
 
 
-def gestionar_clientes():
+def gestionar_clientes(): ## 3
     opcion = 0
     while opcion != 5:
         print("1.Añadir clientes")
@@ -88,7 +97,7 @@ def gestionar_clientes():
 
 
 
-def crear_presupuesto():
+def crear_presupuesto(): ## 4
     
     print("==CREAR PRESUPUESTO==")
     respuesta = "Sí"
@@ -124,7 +133,7 @@ def crear_presupuesto():
 
 
 
-def ver_presupuestos():
+def ver_presupuestos(): ##
     if len(clientes) == 0:
         print("==PRESUPUESTOS==\n")
         print("-No hay presupuestos guardados\n")
@@ -152,7 +161,7 @@ def ver_presupuestos():
         
 
 
-def menu_principal():        
+def menu_principal():  ## 6    
     opción = 0
     while opción != 4:
         print("===SISTEMA EMPRESA===")
